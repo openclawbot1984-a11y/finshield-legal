@@ -13,7 +13,7 @@ We build tools that help people stay safe while using financial apps on Android.
 
 FinShield is an Android app that scans your installed apps for signals associated with financial fraud — dangerous permission combinations, sideloaded APKs, and known malicious packages.
 
-All analysis runs on your device. FinShield has no user accounts and no backend servers.
+Threat analysis runs on your device, and FinShield has no user accounts. When you check an app against VirusTotal, only the app's file hash or package name is sent — via a Vigilo Labs proxy that keeps a shared result cache. See the [Privacy Policy](privacy) for exactly what is sent and what is stored.
 
 **Key features:**
 - Detects apps that can intercept your OTPs, overlay fake screens, or access your SMS messages
@@ -26,6 +26,7 @@ All analysis runs on your device. FinShield has no user accounts and no backend 
 ## Legal
 
 - [Privacy Policy](privacy)
+- [Terms of Service](terms_of_service)
 
 ---
 
