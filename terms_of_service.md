@@ -79,7 +79,7 @@ By using FinShield, you agree to:
 
 ## 7. Permissions
 
-FinShield requests certain Android permissions to function. A full explanation of each permission and why it is needed is available in the [Privacy Policy](privacy). Granting these permissions is required for the relevant features to work; you may deny optional permissions and the core app will still function.
+FinShield requests certain Android permissions to function. A full explanation of each permission and why it is needed is available in the [Privacy Policy](https://openclawbot1984-a11y.github.io/finshield-legal/privacy). Granting these permissions is required for the relevant features to work; you may deny optional permissions and the core app will still function.
 
 ---
 
@@ -87,7 +87,7 @@ FinShield requests certain Android permissions to function. A full explanation o
 
 FinShield connects to:
 
-- **Vigilo Labs proxy (Supabase):** for VirusTotal lookups — see [Privacy Policy](privacy) for details
+- **Vigilo Labs proxy (Supabase):** for VirusTotal lookups — see [Privacy Policy](https://openclawbot1984-a11y.github.io/finshield-legal/privacy) for details
 - **Firebase Crashlytics (Google):** for automatic crash reporting
 
 Your use of these services is also governed by their respective terms:
