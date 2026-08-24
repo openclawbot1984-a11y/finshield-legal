@@ -5,7 +5,7 @@ title: FinShield Privacy Policy
 
 # FinShield Privacy Policy
 
-**Last updated:** 2026-08-17  
+**Last updated:** 2026-08-24  
 **App:** FinShield — Financial Fraud Protection  
 **Developer:** Vigilo Labs
 
@@ -13,7 +13,7 @@ title: FinShield Privacy Policy
 
 ## Who we are
 
-FinShield is an Android app developed by Vigilo Labs. It scans the apps installed on your phone for signals associated with financial fraud — things like dangerous permission combinations, sideloaded APKs, and known malicious packages. All threat analysis happens on your device. FinShield has no user accounts.
+FinShield is an Android app developed by Vigilo Labs. On your phone it appears as **Second Look** — the app was renamed and the store listing has not yet caught up. It scans the apps installed on your phone for signals associated with financial fraud — things like dangerous permission combinations, sideloaded APKs, and known malicious packages. All threat analysis happens on your device. FinShield has no user accounts.
 
 ---
 
@@ -33,7 +33,11 @@ When you open FinShield or tap Rescan, the app reads the list of apps installed 
 
 FinShield can check whether a specific app has been flagged by antivirus engines. These checks use the [VirusTotal](https://www.virustotal.com) service.
 
-**What is sent:** FinShield sends only the SHA-256 hash of the app's APK file, or the app's package name (e.g. `com.example.app`) if the APK hash cannot be computed.
+**What is sent:** the SHA-256 hash of the app's APK file. The app's package name (e.g.
+`com.example.app`) is sent **only when the hash cannot answer the question** — either the hash could
+not be computed from the APK, or VirusTotal has no record of that hash and a lookup by package name
+is the only remaining way to recognise a repackaged version of known malware. When the hash is enough,
+the package name is not sent at all.
 
 **When it is sent:**
 - **Automatically**, after a scan completes, for apps that are either sideloaded (not installed from the Play Store) or classified as High risk. This check is cache-aware: if a result for the same app was fetched recently, the network request is skipped.
@@ -87,6 +91,49 @@ If you tap "Ignore this app" on a risk card, that app's package name is saved lo
 
 ---
 
+### 7. App usage analytics
+
+FinShield records how the app itself is used, so we can see which parts help people and which parts
+confuse them. This is our own measurement. It is not shared with any advertising network or analytics
+company.
+
+**What is sent:** a small set of events describing your use of the app — when you open it, which setup
+step you reached, whether you granted Usage Access, whether you finished setup, when a scan finished and
+how many risks it found, when a scan failed, when an alert was raised, when you acted on a warning and
+which action you chose, whether a risk was later resolved, and when you turned monitoring on or off.
+Counts, durations and scores are grouped into ranges rather than sent exactly.
+
+Each event also carries your phone's make and model (for example, "realme RMX3998"), its Android version
+and the FinShield version. These describe the *kind* of phone, not your particular phone, and we use them
+for one purpose: to see whether a problem affects one brand or Android version more than others. Android
+phones differ a great deal between manufacturers, and without this a fault that only happens on one brand
+is invisible to us.
+
+Each event carries a random identifier created when FinShield is installed. It is not linked to your
+name, phone number, email address or Google account, it is not an advertising ID, and it is deleted with
+the app when you uninstall — a reinstall creates a new identifier that cannot be connected to the old one.
+
+**What is not sent:** the names or package names of the apps on your phone, your messages, your contacts,
+your guardian's phone number, or anything from inside your banking apps. No hardware serial number, IMEI,
+Android ID or advertising ID is sent, and neither is your Wi-Fi network name. Section 2 describes the only
+circumstance in which a package name leaves your device.
+
+**About your internet (IP) address:** FinShield never puts your IP address inside an event, and it is never
+stored next to your activity. But like every app that talks to a server, the connection itself carries it.
+Our server uses it for one purpose — making sure a single connection cannot flood the service — and deletes
+it automatically after a few minutes. It is not used to identify you, to work out where you are, or to link
+your events together.
+
+**Where it goes:** a Vigilo Labs server (Supabase). It is not shared with third parties.
+
+**How long it is stored:** 90 days. After that the records are deleted permanently. We do not keep a
+summary, a copy, or any other version of them.
+
+**Can it be turned off:** No. This measurement is part of how the app works and there is no setting to
+disable it. Uninstalling the app stops it and deletes the identifier described above.
+
+---
+
 ## What FinShield does NOT collect
 
 - Your name, email address, or any identity information
@@ -108,6 +155,7 @@ All data FinShield stores locally lives on your device only. You can delete all 
 | Guardian phone number | Encrypted local storage | Until you clear it in Settings or clear app data |
 | Crash reports | Firebase Crashlytics (Google) | Per Google's Firebase data retention policy |
 | Firebase installation ID (alert wording updates) | Firebase (Google) | Until you clear app data or uninstall, which resets it |
+| App usage events (Section 7) | Vigilo Labs server (Supabase) | 90 days, then permanently deleted — no aggregate or summary is kept |
 
 ---
 
@@ -117,12 +165,12 @@ FinShield contacts the following external services:
 
 | Service | Purpose | Operator |
 |---|---|---|
-| Vigilo Labs proxy (Supabase) | Forwards APK hash / package name to VirusTotal; maintains shared result cache | Vigilo Labs / Supabase Inc. |
+| Vigilo Labs proxy (Supabase) | Forwards APK hash / package name to VirusTotal; maintains shared result cache; receives the app usage events in Section 7 | Vigilo Labs / Supabase Inc. |
 | VirusTotal | Malware intelligence — returns verdict for a given APK hash or package name | Google LLC |
 | Firebase Crashlytics | Automatic crash reporting | Google LLC |
 | Firebase Remote Config | Updates fraud-warning wording without an app update (see Section 4) | Google LLC |
 
-No advertising network or analytics SDK is included in FinShield.
+FinShield contains no advertising network and no third-party analytics SDK. The app usage analytics described in Section 7 are collected by Vigilo Labs directly, on our own server, and are not passed to any advertising or analytics company.
 
 ---
 
