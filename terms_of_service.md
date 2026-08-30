@@ -5,8 +5,12 @@ title: FinShield Terms of Service
 
 # FinShield Terms of Service
 
-**Last updated:** 2026-05-06
-**App:** FinShield — Financial Fraud Protection
+**Last updated:** 2026-08-30  
+
+> **"FinShield" and "Second Look" are the same app.** On Google Play it is listed as
+> **"Second Look: Scam App Check"**; "FinShield" is the name used throughout this document.
+
+**App:** FinShield — published on Google Play as **"Second Look: Scam App Check"**  
 **Developer:** Vigilo Labs
 
 ---

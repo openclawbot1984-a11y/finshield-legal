@@ -5,15 +5,17 @@ title: FinShield Privacy Policy
 
 # FinShield Privacy Policy
 
-**Last updated:** 2026-08-24  
-**App:** FinShield — Financial Fraud Protection  
+**Last updated:** 2026-08-30  
+**App:** FinShield — published on Google Play as **"Second Look: Scam App Check"**  
 **Developer:** Vigilo Labs
 
 ---
 
 ## Who we are
 
-FinShield is an Android app developed by Vigilo Labs. On your phone it appears as **Second Look** — the app was renamed and the store listing has not yet caught up. It scans the apps installed on your phone for signals associated with financial fraud — things like dangerous permission combinations, sideloaded APKs, and known malicious packages. All threat analysis happens on your device. FinShield has no user accounts.
+FinShield is an Android app developed by Vigilo Labs. **On Google Play, and on your phone, it is called
+"Second Look: Scam App Check" — that is the same app this policy describes.** "FinShield" is the name we
+use for it throughout this document. It scans the apps installed on your phone for signals associated with financial fraud — things like dangerous permission combinations, sideloaded APKs, and known malicious packages. All threat analysis happens on your device. FinShield has no user accounts.
 
 ---
 
@@ -134,6 +136,46 @@ disable it. Uninstalling the app stops it and deletes the identifier described a
 
 ---
 
+### 8. Checking that FinShield itself is genuine
+
+Scammers sometimes take a real app, change it, and pass the copy around outside the Play Store. A fake
+"FinShield" would be a particularly cruel version of that — an app people install *because* they are
+worried about fraud. So FinShield asks Google whether the copy running on your phone is the one Google
+distributed.
+
+**What is sent:** FinShield asks Google Play services on your phone for a signed statement about this app.
+Your phone creates that statement — we cannot read it or change it. FinShield sends it to a Vigilo Labs
+server (Supabase), which asks Google to open it and confirm it is genuine.
+
+**How often:** once when you open FinShield. Switching to another app and coming back does not repeat it,
+and it does not happen while FinShield is closed or quietly doing background work.
+
+**What the statement contains:** Google decides this, not us. It contains three things: whether this copy
+of FinShield is the one Google distributed, whether your phone appears to be a genuine Android device, and
+whether the app came through Google Play. It also carries FinShield's own name and the time it was made,
+so we can check the statement belongs to this request. **It does not contain your name, your Google
+account, your phone number, your location, or anything about the other apps on your phone.**
+
+**What we actually use:** one of those three — whether this copy of FinShield is the one Google
+distributed. Our server reads that single answer and throws the rest away. The other two are there because
+Google includes them in every statement; there is no way to ask for less.
+
+**What we do with the answer:** at the moment, nothing you would notice. It is recorded inside the app
+while the app is running, so we can confirm the check works. It does not change your safety score and it
+does not raise a warning. If that ever changes, this policy will say so.
+
+**Where it goes:** to a Vigilo Labs server (Supabase), and from there to Google's Play Integrity service,
+which is the only party able to open the statement.
+
+**How long it is stored:** it is not stored. The statement is opened, one answer is read, and it is
+discarded. No record of the request or its result is kept on our server, and nothing is written to your
+phone's storage — the answer is forgotten when the app closes.
+
+**Can it be turned off:** No. This check is part of how the app works and there is no setting to disable
+it. Nothing is kept from it, so there is nothing to delete; uninstalling the app stops it.
+
+---
+
 ## What FinShield does NOT collect
 
 - Your name, email address, or any identity information
@@ -156,6 +198,7 @@ All data FinShield stores locally lives on your device only. You can delete all 
 | Crash reports | Firebase Crashlytics (Google) | Per Google's Firebase data retention policy |
 | Firebase installation ID (alert wording updates) | Firebase (Google) | Until you clear app data or uninstall, which resets it |
 | App usage events (Section 7) | Vigilo Labs server (Supabase) | 90 days, then permanently deleted — no aggregate or summary is kept |
+| Play Integrity statement (Section 8) | Not stored anywhere | Discarded as soon as one answer is read; no record kept on our server or your phone |
 
 ---
 
@@ -169,6 +212,7 @@ FinShield contacts the following external services:
 | VirusTotal | Malware intelligence — returns verdict for a given APK hash or package name | Google LLC |
 | Firebase Crashlytics | Automatic crash reporting | Google LLC |
 | Firebase Remote Config | Updates fraud-warning wording without an app update (see Section 4) | Google LLC |
+| Google Play Integrity | Confirms whether this copy of FinShield is the one Google distributed (see Section 8) | Google LLC |
 
 FinShield contains no advertising network and no third-party analytics SDK. The app usage analytics described in Section 7 are collected by Vigilo Labs directly, on our own server, and are not passed to any advertising or analytics company.
 
