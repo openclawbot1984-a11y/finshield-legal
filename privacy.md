@@ -5,7 +5,7 @@ title: FinShield Privacy Policy
 
 # FinShield Privacy Policy
 
-**Last updated:** 2026-08-30  
+**Last updated:** 2026-08-31  
 **App:** FinShield — published on Google Play as **"Second Look: Scam App Check"**  
 **Developer:** Vigilo Labs
 
@@ -122,11 +122,17 @@ circumstance in which a package name leaves your device.
 
 **About your internet (IP) address:** FinShield never puts your IP address inside an event, and it is never
 stored next to your activity. But like every app that talks to a server, the connection itself carries it.
-Our server uses it for one purpose — making sure a single connection cannot flood the service — and deletes
-it automatically after a few minutes. It is not used to identify you, to work out where you are, or to link
-your events together.
 
-**Where it goes:** a Vigilo Labs server (Supabase). It is not shared with third parties.
+Our own code uses it for one purpose — making sure a single connection cannot flood the service — and drops
+it from our records within minutes. Separately, the companies that host and protect our server keep an
+automatic connection log, the way web servers ordinarily do. That log holds your IP address, the rough area
+it suggests you are in, and basic technical details about your phone's connection. It is kept for one day
+and then deleted. We do not look at the location details in it, and nothing in it is joined to your
+activity.
+
+**Where it goes:** a Vigilo Labs server hosted by Supabase, reached through Cloudflare, which protects the
+server from attack. Both handle the connection on our behalf. We do not share your information with anyone
+else, and we do not sell it.
 
 **How long it is stored:** 90 days. After that the records are deleted permanently. We do not keep a
 summary, a copy, or any other version of them.
@@ -199,6 +205,7 @@ All data FinShield stores locally lives on your device only. You can delete all 
 | Firebase installation ID (alert wording updates) | Firebase (Google) | Until you clear app data or uninstall, which resets it |
 | App usage events (Section 7) | Vigilo Labs server (Supabase) | 90 days, then permanently deleted — no aggregate or summary is kept |
 | Play Integrity statement (Section 8) | Not stored anywhere | Discarded as soon as one answer is read; no record kept on our server or your phone |
+| Server connection log (Section 7) | Supabase / Cloudflare, as part of running the server | 1 day, then deleted |
 
 ---
 
@@ -209,6 +216,7 @@ FinShield contacts the following external services:
 | Service | Purpose | Operator |
 |---|---|---|
 | Vigilo Labs proxy (Supabase) | Forwards APK hash / package name to VirusTotal; maintains shared result cache; receives the app usage events in Section 7 | Vigilo Labs / Supabase Inc. |
+| Cloudflare | Sits in front of our server to protect it from attack and abuse; sees the connection itself, including your IP address and the rough area it suggests (see Section 7) | Cloudflare, Inc. |
 | VirusTotal | Malware intelligence — returns verdict for a given APK hash or package name | Google LLC |
 | Firebase Crashlytics | Automatic crash reporting | Google LLC |
 | Firebase Remote Config | Updates fraud-warning wording without an app update (see Section 4) | Google LLC |
