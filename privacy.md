@@ -5,7 +5,7 @@ title: FinShield Privacy Policy
 
 # FinShield Privacy Policy
 
-**Last updated:** 2026-08-31  
+**Last updated:** 2026-10-03  
 **App:** FinShield — published on Google Play as **"Second Look: Scam App Check"**  
 **Developer:** Vigilo Labs
 
@@ -25,7 +25,8 @@ use for it throughout this document. It scans the apps installed on your phone f
 
 When you open FinShield or tap Rescan, the app reads the list of apps installed on your device — including their names, package names, declared permissions, and install sources. This is required for the app to do its job.
 
-**Where it goes:** Your device only. This information is never transmitted to us or any third party.
+**Where it goes:** Your device. The list itself is never sent to us or anyone else. The one exception is
+the VirusTotal check in Section 2, which can send a single app's package name when the app's hash is not enough.
 
 **How long it is stored:** Scan results are saved locally on your device in a local database (Room). The snapshot is reused when you reopen the app within 30 minutes of the last scan; after that, a fresh scan runs instead. The stored data remains on disk until it is overwritten by the next scan or until you clear app data — it is not automatically deleted at the 30-minute mark.
 
@@ -87,9 +88,13 @@ If you tap the "Alert guardian" action on a FinShield notification, FinShield op
 
 ---
 
-### 6. Ignored apps
+### 6. Apps you trust
 
-If you tap "Ignore this app" on a risk card, that app's package name is saved locally on your device (in Room) so FinShield does not flag it again. This list never leaves your device and you can restore ignored apps via Settings → Ignored Apps.
+If you tap "I trust this app" on an app's card, that app's package name is saved on your phone, together with its version and signing certificate, so FinShield notices if the app changes. Trusted apps stay in your list, marked Trusted, and warnings about them are made quieter rather than stopped. You can stop trusting an app on its card or in Settings → Apps you trust.
+
+FinShield also keeps a short history on your phone: when it first noticed each app's abilities, and on which days it warned about each app (up to the 30 most recent). It uses this to make repeated warnings about long-installed apps quieter.
+
+Neither of these ever leaves your phone. Both are deleted when you clear the app's data.
 
 ---
 
@@ -102,14 +107,16 @@ company.
 **What is sent:** a small set of events describing your use of the app — when you open it, which setup
 step you reached, whether you granted Usage Access, whether you finished setup, when a scan finished and
 how many risks it found, when a scan failed, when an alert was raised, when you acted on a warning and
-which action you chose, whether a risk was later resolved, and when you turned monitoring on or off.
+which action you chose, whether a risk was later resolved, and when you turned monitoring on or off. When
+you're asked to confirm turning monitoring off, we also record whether you kept it on, and whether a call
+was going on at that moment — a simple yes or no, with nothing about the call itself.
 Counts, durations and scores are grouped into ranges rather than sent exactly.
 
-Each event also carries your phone's make and model (for example, "realme RMX3998"), its Android version
-and the FinShield version. These describe the *kind* of phone, not your particular phone, and we use them
-for one purpose: to see whether a problem affects one brand or Android version more than others. Android
-phones differ a great deal between manufacturers, and without this a fault that only happens on one brand
-is invisible to us.
+Each event also carries your phone's make and model (for example, "realme RMX3998"), its Android version,
+the date of its last Android security update, and the FinShield version. These describe the *kind* of
+phone, not your particular phone, and we use them for one purpose: to see whether a problem affects one
+brand or Android version more than others. Android phones differ a great deal between manufacturers, and
+without this a fault that only happens on one brand is invisible to us.
 
 Each event carries a random identifier created when FinShield is installed. It is not linked to your
 name, phone number, email address or Google account, it is not an advertising ID, and it is deleted with
@@ -199,7 +206,8 @@ All data FinShield stores locally lives on your device only. You can delete all 
 |---|---|---|
 | Scan results | Room (local) | Reused within 30-minute window; remains on disk until next scan or app data clear |
 | VirusTotal verdicts | Room (local) + Supabase (server cache) | Local: until app data is cleared. Server: until TTL expires (7–30 days depending on verdict) |
-| Ignored apps | Room (local) | Until you remove them or clear app data |
+| Apps you trust (Section 6) | Room (local) | Until you stop trusting them or clear app data |
+| Warning history (Section 6) | App storage (local) | Until you clear app data; per app, only the 30 most recent warning days |
 | Guardian phone number | Encrypted local storage | Until you clear it in Settings or clear app data |
 | Crash reports | Firebase Crashlytics (Google) | Per Google's Firebase data retention policy |
 | Firebase installation ID (alert wording updates) | Firebase (Google) | Until you clear app data or uninstall, which resets it |

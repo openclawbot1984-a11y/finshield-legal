@@ -11,6 +11,9 @@ We build tools that help people stay safe while using financial apps on Android.
 
 ## FinShield
 
+> **"FinShield" and "Second Look" are the same app.** On Google Play it is listed as
+> **"Second Look: Scam App Check"**; "FinShield" is the name used throughout this site.
+
 FinShield is an Android app that scans your installed apps for signals associated with financial fraud — dangerous permission combinations, sideloaded APKs, and known malicious packages.
 
 Threat analysis runs on your device, and FinShield has no user accounts. When you check an app against VirusTotal, only the app's file hash or package name is sent — via a Vigilo Labs proxy that keeps a shared result cache. See the [Privacy Policy](https://openclawbot1984-a11y.github.io/finshield-legal/privacy) for exactly what is sent and what is stored.
